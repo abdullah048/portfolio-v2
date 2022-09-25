@@ -26,7 +26,7 @@ const Hero = () => {
         <h2 className='text-sm uppercase text-teal-700 pb-2 tracking-[15px]'>
           Software Engineer
         </h2>
-        <h1 className='text-5xl xl:text-6xl font-semibold px-10'>
+        <h1 className='text-3xl xl:text-4xl font-semibold px-10'>
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='#f7a' />
         </h1>
@@ -42,6 +42,9 @@ const Hero = () => {
           </Link>
           <Link href='#projects'>
             <button className='heroButton'>Projects</button>
+          </Link>
+          <Link href='#contact'>
+            <button className='heroButton'>Contact</button>
           </Link>
         </div>
       </div>
