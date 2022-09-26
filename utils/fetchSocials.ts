@@ -1,5 +1,4 @@
-
-import { Socials } from "../typings"
+import { Socials } from '../typings'
 
 export const fetchSocials = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSocials`)
@@ -7,8 +6,7 @@ export const fetchSocials = async () => {
 
   const socials: Socials[] = data.socials
 
-  console.log('fetching', socials)
+  //console.log('fetching', socials)
 
   return socials
-
 }

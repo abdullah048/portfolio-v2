@@ -25,7 +25,6 @@ type Props = {
 }
 
 const Home = ({ pageInfo, experience, skills, projects, socials }: Props) => {
-  console.log(skills)
   return (
     <div className='overflow-x-hidden bg-[rgb(36,36,36)] text-white h-screen snap-y snap-madatory overflow-y-scroll z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#f7a]/40'>
       <Head>

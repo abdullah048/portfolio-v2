@@ -8,7 +8,7 @@ export const fetchExperience = async () => {
 
   const experience: Experience[] = data.experience
 
-  console.log('fetching', experience)
+  //console.log('fetching', experience)
 
   return experience
 }
