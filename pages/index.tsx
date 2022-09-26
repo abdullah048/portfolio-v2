@@ -30,7 +30,6 @@ const Home = ({ pageInfo, experience, skills, projects, socials }: Props) => {
       <Head>
         <title>Portfolio V2</title>
         <meta name='description' content='Craftzfox created Portfolio-v2' />
-        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header socials={socials} />
       <section id='hero' className='snap-start'>
