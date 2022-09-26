@@ -1,7 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { PageInfo } from '../typings'
+import { urlFor } from '../sanity'
 
-const About = () => {
+type Props = {
+  pageInfo: PageInfo
+}
+
+const About = ({ pageInfo }: Props) => {
   return (
     <motion.div
       className='h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-4xl px-10 mx-auto justify-evenly items-center'
@@ -27,7 +33,7 @@ const About = () => {
         transition={{
           duration: 1.2
         }}
-        src='/abdullah.jpeg'
+        src={urlFor(pageInfo.profileImage).url()}
         alt='heroProfileImage'
         className='mt-20 text-center md:mb-0 flex-shrink-0 object-cover w-40 h-40 rounded-full md:rounded-lg md:w-64 md:h-64 xl:w-[350px] xl:h-[350px]'
       />
@@ -37,11 +43,7 @@ const About = () => {
           <span className='underline decoration-[#f7a]/40'>little</span>{' '}
           background
         </h3>
-        <p className='text-lg text-justify'>
-          I&apos;m Abdullah. I&apos;m a full stack developer based in Pakistan.
-          I&apos;ve been coding for over 4 years now. I&apos;ve expert level
-          skills in <span className='text-teal-700'>React</span>.
-        </p>
+        <p className='text-lg text-justify'>{pageInfo.backgroundInformation}</p>
       </div>
     </motion.div>
   )

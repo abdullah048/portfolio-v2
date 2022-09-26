@@ -3,11 +3,17 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import Background from './background'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { PageInfo } from '../typings'
+import { urlFor } from '../sanity'
 
-const Hero = () => {
+type Props = {
+  pageInfo: PageInfo
+}
+
+const Hero = ({ pageInfo }: Props) => {
   const [text, count] = useTypewriter({
     words: [
-      `Hi, The Name's Abdullah Shahbaz.`,
+      `Hi, The Name's ${pageInfo.name}.`,
       'Guy-who-loves-Coffee.tsx',
       'Full-Stack-Developer'
     ],
@@ -18,13 +24,13 @@ const Hero = () => {
     <motion.div className='h-screen flex flex-col items-center justify-center space-y-8 text-center overflow-hidden'>
       <Background />
       <img
-        src='/abdullah.jpeg'
+        src={urlFor(pageInfo.heroImage).url()}
         alt='profile'
         className='relative rounded-full w-32 h-32 mx-auto object-cover'
       />
       <div className='z-20'>
         <h2 className='text-sm uppercase text-teal-700 pb-2 tracking-[15px]'>
-          Software Engineer
+          {pageInfo.role}
         </h2>
         <h1 className='text-3xl xl:text-4xl font-semibold px-10'>
           <span className='mr-3'>{text}</span>

@@ -2,6 +2,11 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { PageInfo } from '../typings'
+
+type Props = {
+  pageInfo: PageInfo
+}
 
 type Inputs = {
   name: string
@@ -10,7 +15,7 @@ type Inputs = {
   message: string
 }
 
-const ContactUs = () => {
+const ContactUs = ({ pageInfo }: Props) => {
   const { register, handleSubmit } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = data => {
     window.location.href = `mailto:abdullahshahbaz048@gmail.com?subject=${data.subject}&body=${data.message}`
@@ -41,15 +46,15 @@ const ContactUs = () => {
         <div className='space-y-5'>
           <div className='flex items-center space-x-5 justify-center'>
             <PhoneIcon className='text-[#f7a]/40 h-7 w-7 animate-pulse' />
-            <p className='text-xl font-light'>+923077750051</p>
+            <p className='text-xl font-light'>{pageInfo.phoneNo}</p>
           </div>
           <div className='flex items-center space-x-5 justify-center'>
             <EnvelopeIcon className='text-[#f7a]/40 h-7 w-7 animate-pulse' />
-            <p className='text-xl font-light'>abdullahshahbaz048@gmail.com</p>
+            <p className='text-xl font-light'>{pageInfo.email}</p>
           </div>
           <div className='flex items-center space-x-5 justify-center'>
             <MapPinIcon className='text-[#f7a]/40 h-7 w-7 animate-pulse' />
-            <p className='text-xl font-light'>123 Developer Lane</p>
+            <p className='text-xl font-light'>{pageInfo.address}</p>
           </div>
         </div>
         <form
@@ -80,7 +85,7 @@ const ContactUs = () => {
             placeholder='Message'
             {...register('message')}
           />
-          <button className='heroButton'>Submit</button>
+          <button className='heroButton z-20'>Submit</button>
         </form>
       </div>
     </motion.div>
