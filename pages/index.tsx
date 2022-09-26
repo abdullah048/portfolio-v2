@@ -11,11 +11,6 @@ import Projects from '../components/projects'
 import Skills from '../components/skills'
 import { sanityClient } from '../sanity'
 import { Experience, PageInfo, Project, Skill, Socials } from '../typings'
-import { fetchExperience } from '../utils/fetchExperience'
-import { fetchPageInfo } from '../utils/fetchPageInfo'
-import { fetchProjects } from '../utils/fetchProjects'
-import { fetchSkills } from '../utils/fetchSkills'
-import { fetchSocials } from '../utils/fetchSocials'
 
 type Props = {
   pageInfo: PageInfo
