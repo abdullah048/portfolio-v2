@@ -5,7 +5,7 @@ import { sanityClient } from '../../sanity'
 import { PageInfo } from '../../typings'
 
 type Data = {
-  info: PageInfo
+  pageInfo: PageInfo
 }
 
 const query = groq`
@@ -19,6 +19,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const info: PageInfo = await sanityClient.fetch(query)
-  res.status(200).json({ info })
+  const pageInfo: PageInfo = await sanityClient.fetch(query)
+  res.status(200).json({ pageInfo })
 }
