@@ -103,6 +103,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       projects,
       socials
     },
-    revalidate: 1800
+    // revalidate: 1800
+    revalidate: false
   }
 }

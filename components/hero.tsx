@@ -5,31 +5,35 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { PageInfo } from '../typings'
 import { urlFor } from '../sanity'
+import { useMediaQuery } from 'react-responsive'
 
 type Props = {
   pageInfo: PageInfo
 }
 
 const Hero = ({ pageInfo }: Props) => {
+  const isTabletMobileView = useMediaQuery({
+    query: '(max-width:850px)'
+  })
   const [text, count] = useTypewriter({
     words: [
       `Hi, The Name's ${pageInfo.name}.`,
-      'Guy-who-loves-Coffee.tsx',
-      'Full-Stack-Developer'
+      'Full-Stack-Developer',
+      'Guy-who-loves-Coffee.tsx'
     ],
     delaySpeed: 2000,
     loop: true
   })
   return (
     <motion.div className='h-screen flex flex-col items-center justify-center space-y-8 text-center overflow-hidden'>
-      <Background />
+      {!isTabletMobileView && <Background />}
       <img
         src={urlFor(pageInfo.heroImage).url()}
         alt='profile'
         className='relative rounded-full w-32 h-32 mx-auto object-cover'
       />
       <div className='z-20'>
-        <h2 className='text-sm uppercase text-teal-700 pb-2 tracking-[15px]'>
+        <h2 className='text-sm uppercase text-teal-700 pb-2 tracking-[6px] sm:tracking-[15px]'>
           {pageInfo.role}
         </h2>
         <h1 className='text-3xl xl:text-4xl font-semibold px-10'>
